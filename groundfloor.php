@@ -22,8 +22,8 @@
                 </div>
                 <img src="images/groundfloor plan.jpeg" alt="groundfloor" class="img-fluid" usemap="#groundfloor" />
                 <map name="groundfloor">
-                    <area shape="rect" coords="216,540,389,376" alt="hall" href="hall.php" />
-                    <area shaep="rect" coords="110,215,270,373" alt="kitchan" href="kitchan.php" />
+                    <area shape="rect" coords="214,539,389,370" alt="hall" href="hall.php" />
+                    <area shaep="rect" coords="109,211,280,373" alt="kitchan" href="kitchan.php" />
                 </map>
             </div>
             <div class="col-md-3"> </div>

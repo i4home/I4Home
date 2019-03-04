@@ -32,9 +32,9 @@ window.onpopstate = function() {
                     <div class="dropdown-menu text-center">
                         <a class="dropdown-item" href="groundfloor.php">Ground Floor</a>
                         <a class="dropdown-item" href="#">First Floor</a>
-                        <a class="dropdown-item" href="#">Tarrace</a>
-                        <a class="dropdown-item" href="#">Outdoor</a>
-                        <a class="dropdown-item" href="#">Parking</a>
+                        <a class="dropdown-item" href="terrace.php">Terrace</a>
+                        <a class="dropdown-item" href="outdoor.php">Outdoor</a>
+                        <a class="dropdown-item" href="parking.php">Parking</a>
                     </div>
                     <div class="col-md-3"> </div>
                 </div>
@@ -46,21 +46,3 @@ window.onpopstate = function() {
 </body>
 
 </html>
-<!--<div class="dropdown text-center mt-5">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">select room</button>
-					<div class="dropdown-menu text-center">
-					<a class="dropdown-item" href="#">Hall</a>
-					<a class="dropdown-item" href="#">Kitchan</a>
-					<a class="dropdown-item" href="#">Bed Room</a>
-				
-					</div>
-					</div>
-					<div class="w-100"></div>	-->
-<!-- <div><a href="welcome.php"><img src="logo.png" alt="I4home" class="img-responsive"
-                                width="60%" /></a></div>
-                    <div class="mt-5">
-                        <a href="#" <button type="button" class="btn btn-primary squre ">Hall</button></a>
-                        <a href="#" <button type="button" class="btn btn-primary ">kitchan</button></a>
-                        <a href="#" <button type="button" class="btn btn-primary ">Bed Room</button></a>
-                    </div>
-                </div>

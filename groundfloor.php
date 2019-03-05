@@ -15,11 +15,6 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center">
-                <div class="text-center text-muted mx-auto mt-4 w-75 mb-4">
-                    <h2 class="text-success">
-                        <?php  echo 'welcome &nbsp;' .$_SESSION["username"]; ?>
-                    </h2>
-                </div>
                 <img src="images/groundfloor plan.jpeg" alt="groundfloor" class="img-fluid" usemap="#groundfloor" />
                 <map name="groundfloor">
                     <area shape="rect" coords="214,539,389,370" alt="hall" href="hall.php" />

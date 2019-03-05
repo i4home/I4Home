@@ -18,9 +18,6 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center">
                 <div class="text-center text-muted mx-auto mt-4 w-75 mb-4">
-                    <h2 class="text-success">
-                        <?php  echo 'welcome &nbsp;' .$_SESSION["username"]; ?>
-                    </h2>
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="devices/fan.png" alt="fan" class="img-fluid w-50" /></td>

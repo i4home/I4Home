@@ -16,6 +16,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center">
                 <br />
+                
                 <h3 class="text-white">Ground Floor</h3>
                 <br />
                 <img src="..\images\groundfloor plan.jpeg" alt="groundfloor" class="img-fluid" usemap="#groundfloor" />

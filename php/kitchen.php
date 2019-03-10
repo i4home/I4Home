@@ -8,11 +8,11 @@
 ?>
 <html>
 <title>Kitchen</title>
-<?php require("..\html\head.html")?>
+<?php require("../html/head.html")?>
 
 
 <body>
-    <?php require("..\html\header.html")?>
+    <?php require("../html/header.html")?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>

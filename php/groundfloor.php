@@ -7,10 +7,10 @@
 ?>
 <html>
 
-<?php require("..\html\head.html")?>
+<?php require("../html/head.html")?>
 
 <body>
-    <?php require("..\html\header.html")?>
+    <?php include("../html/header.html")?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>

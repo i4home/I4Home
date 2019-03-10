@@ -20,74 +20,110 @@
                     <br />
                     <h3 class="text-white">Hall</h3>
                     <br />
+
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="hall_fan" onchange="hall_fan()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="hall.php">
+                                    <p><input type="submit" id="hall_fan_on" name="hall_fan_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="hall_fan_off" name="hall_fan_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['hall_fan_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("hall_fan_on").style.visibility = "hidden"; document.getElementById("hall_fan_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['hall_fan_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("hall_fan_off").style.visibility = "hidden"; document.getElementById("hall_fan_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="hall_bulb" onchange="hall_bulb()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="hall.php">
+                                    <p><input type="submit" id="hall_bulb_on" name="hall_bulb_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="hall_bulb_off" name="hall_bulb_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['hall_bulb_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 16 0");
+                                        echo'<script> document.getElementById("hall_bulb_on").style.visibility = "hidden"; document.getElementById("hall_bulb_off").style.visibility = "visible";</script>';
+                                }
+                                else if(isset($_GET['hall_bulb_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 16 1");
+                                        echo'<script> document.getElementById("hall_bulb_off").style.visibility = "hidden"; document.getElementById("hall_bulb_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/tv.png" alt="tv" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="hall_tv" onchange="hall_tv()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="hall.php">
+                                    <p><input type="submit" id="hall_tv_on" name="hall_tv_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="hall_tv_off" name="hall_tv_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['hall_tv_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("hall_tv_on").style.visibility = "hidden"; document.getElementById("hall_tv_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['hall_tv_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("hall_tv_off").style.visibility = "hidden"; document.getElementById("hall_tv_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/ac.png" alt="ac" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="hall_ac" onchange="hall_ac()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="hall.php">
+                                    <p><input type="submit" id="hall_ac_on" name="hall_ac_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="hall_ac_off" name="hall_ac_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['hall_ac_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("hall_ac_on").style.visibility = "hidden"; document.getElementById("hall_ac_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['hall_ac_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("hall_ac_off").style.visibility = "hidden"; document.getElementById("hall_ac_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                     </table>
+
                 </div>
             </div>
             <div class="col-md-3"> </div>
         </div>
     </div>
-    <script>
-    function hall_fan() {
-        var chk = document.getElementById("hall_fan");
-        if (chk.checked == true) {
-            alert('Fan is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Fan is turning OFF');
-        }
-    }
-
-    function hall_bulb() {
-        var chk = document.getElementById("hall_bulb");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-
-    function hall_tv() {
-        var chk = document.getElementById("hall_tv");
-        if (chk.checked == true) {
-            alert('TV is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('TV is turning OFF');
-        }
-    }
-
-    function hall_ac() {
-        var chk = document.getElementById("hall_ac");
-        if (chk.checked == true) {
-            alert('AC is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('AC is turning OFF');
-        }
-    }
-    </script>
 </body>
 
 </html>

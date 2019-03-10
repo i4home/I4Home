@@ -24,29 +24,130 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="kitchen_fan" onchange="kitchen_fan()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="kitchen.php">
+                                    <p style="display:inline"><input type="submit" id="k_fan_on" name="k_fan_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="k_fan_off" name="k_fan_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['k_fan_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("k_fan_on").style.visibility = "hidden"; document.getElementById("k_fan_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['k_fan_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("k_fan_off").style.visibility = "hidden"; document.getElementById("k_fan_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="kitchen_bulb" onchange="kitchen_bulb()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="kitchen.php">
+
+                                    <p>
+                                        <input type="submit" id="k_bulb_on" name="k_bulb_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="k_bulb_off" name="k_bulb_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['k_bulb_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("k_bulb_on").style.visibility = "hidden"; document.getElementById("k_bulb_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['k_bulb_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("k_bulb_off").style.visibility = "hidden"; document.getElementById("k_bulb_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/fridge.png" alt="fridge" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="kitchen_fridge" onchange="kitchen_fridge()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="kitchen.php">
+
+                                    <p>
+                                        <input type="submit" id="k_fridge_on" name="k_fridge_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="k_fridge_off" name="k_fridge_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['k_fridge_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("k_fridge_on").style.visibility = "hidden"; document.getElementById("k_fridge_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['k_fridge_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("k_fridge_off").style.visibility = "hidden"; document.getElementById("k_fridge_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/microwave oven.png" alt="microwave oven" class="img-fluid w-50" />
                             </td>
-                            <td><input type="checkbox" class="" id="kitchen_microwave" onchange="kitchen_microwave()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="kitchen.php">
+                                    <p><input type="submit" id="k_oven_on" name="k_oven_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="k_oven_off" name="k_oven_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['k_oven_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("k_oven_on").style.visibility = "hidden"; document.getElementById("k_oven_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['k_oven_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("k_oven_off").style.visibility = "hidden"; document.getElementById("k_oven_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="kitchen_plug" onchange="kitchen_plug()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="kitchen.php">
+                                    <p><input type="submit" id="k_plug_on" name="k_plug_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="k_plug_off" name="k_plug_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['k_plug_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("k_plug_on").style.visibility = "hidden"; document.getElementById("k_plug_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['k_plug_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("k_plug_off").style.visibility = "hidden"; document.getElementById("k_plug_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                     </table>
                 </div>
@@ -55,57 +156,7 @@
         <div class="col-md-3"> </div>
     </div>
     </div>
-    <script>
-    function kitchen_fan() {
-        var chk = document.getElementById("kitchen_fan");
-        if (chk.checked == true) {
-            alert('Fan is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Fan is turning OFF');
-        }
-    }
-
-    function kitchen_bulb() {
-        var chk = document.getElementById("kitchen_bulb");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-
-    function kitchen_fridge() {
-        var chk = document.getElementById("kitchen_fridge");
-        if (chk.checked == true) {
-            alert('Fridge is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Fridge is turning OFF');
-        }
-    }
-
-    function kitchen_microwave() {
-        var chk = document.getElementById("kitchen_microwave");
-        if (chk.checked == true) {
-            alert('Microwave is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Microwave is turning OFF');
-        }
-    }
-
-    function kitchen_plug() {
-        var chk = document.getElementById("kitchen_plug");
-        if (chk.checked == true) {
-            alert('Plug is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Plug is turning OFF');
-        }
-    }
-    </script>
+    
 </body>
 
 </html>

@@ -25,28 +25,141 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="bed1_fan" onchange="bed1_fan()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+
+                            <td>
+                                <form method="get" action="bedroom1.php">
+
+                                    <p>
+                                        <input type="submit" id="bd_fan_on" name="bd_fan_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="bd_fan_off" name="bd_fan_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['bd_fan_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("bd_fan_on").style.visibility = "hidden"; document.getElementById("bd_fan_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['bd_fan_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("bd_fan_off").style.visibility = "hidden"; document.getElementById("bd_fan_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
+
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="bed1_bulb" onchange="bed1_bulb()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="bedroom1.php">
+
+                                    <p>
+                                        <input type="submit" id="bd_bulb_on" name="bd_bulb_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="bd_bulb_off" name="bd_bulb_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['bd_bulb_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("bd_bulb_on").style.visibility = "hidden"; document.getElementById("bd_bulb_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['bd_bulb_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("bd_bulb_off").style.visibility = "hidden"; document.getElementById("bd_bulb_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
+
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/tv.png" alt="tv" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="bed1_tv" onchange="bed1_tv()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="bedroom1.php">
+
+                                    <p>
+                                        <input type="submit" id="bd_tv_on" name="bd_tv_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="bd_tv_off" name="bd_tv_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['bd_tv_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("bd_tv_on").style.visibility = "hidden"; document.getElementById("bd_tv_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['bd_tv_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("bd_tv_off").style.visibility = "hidden"; document.getElementById("bd_tv_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/ac.png" alt="ac" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="bed1_ac" onchange="bed1_ac()" data-toggle="toggle"
-                                    data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="bedroom1.php">
+
+                                    <p>
+                                        <input type="submit" id="bd_ac_on" name="bd_ac_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="bd_ac_off" name="bd_ac_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['bd_ac_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("bd_ac_on").style.visibility = "hidden"; document.getElementById("bd_ac_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['bd_ac_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("bd_ac_off").style.visibility = "hidden"; document.getElementById("bd_ac_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="bed1_plug" onchange="bed1_plug()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="bedroom1.php">
+
+                                    <p>
+                                        <input type="submit" id="bd_plug_on" name="bd_plug_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="bd_plug_off" name="bd_plug_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['bd_plug_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("bd_plug_on").style.visibility = "hidden"; document.getElementById("bd_plug_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['bd_plug_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("bd_plug_off").style.visibility = "hidden"; document.getElementById("bd_plug_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                     </table>
                 </div>
@@ -55,57 +168,6 @@
             <div class="col-md-3"> </div>
         </div>
     </div>
-    <script>
-    function bed1_fan() {
-        var chk = document.getElementById("bed1_fan");
-        if (chk.checked == true) {
-            alert('Fan is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Fan is turning OFF');
-        }
-    }
-
-    function bed1_bulb() {
-        var chk = document.getElementById("bed1_bulb");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-
-    function bed1_tv() {
-        var chk = document.getElementById("bed1_tv");
-        if (chk.checked == true) {
-            alert('TV is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('TV is turning OFF');
-        }
-    }
-
-    function bed1_ac() {
-        var chk = document.getElementById("bed1_ac");
-        if (chk.checked == true) {
-            alert('AC is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('AC is turning OFF');
-        }
-    }
-
-    function bed1_plug() {
-        var chk = document.getElementById("bed1_plug");
-        if (chk.checked == true) {
-            alert('Plug is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Plug is turning OFF');
-        }
-    }
-    </script>
 </body>
 
 </html>

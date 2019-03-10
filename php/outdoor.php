@@ -23,18 +23,75 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="outdoor_bulb1" onchange="outdoor_bulb1()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="outdoor.php">
+                                    <p><input type="submit" id="o_bulb1_on" name="o_bulb1_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="o_bulb1_off" name="o_bulb1_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['o_bulb1_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("o_bulb1_on").style.visibility = "hidden"; document.getElementById("o_bulb1_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['o_bulb1_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("o_bulb1_off").style.visibility = "hidden"; document.getElementById("o_bulb1_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="outdoor_bulb2" onchange="outdoor_bulb2()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="outdoor.php">
+                                    <p><input type="submit" id="o_bulb2_on" name="o_bulb2_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="o_bulb2_off" name="o_bulb2_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['o_bulb2_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("o_bulb2_on").style.visibility = "hidden"; document.getElementById("o_bulb2_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['o_bulb2_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("o_bulb2_off").style.visibility = "hidden"; document.getElementById("o_bulb2_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="blub" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="outdoor_bulb3" onchange="outdoor_bulb3()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="outdoor.php">
+                                    <p><input type="submit" id="o_bulb3_on" name="o_bulb3_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="o_bulb3_off" name="o_bulb3_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['o_bulb3_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("o_bulb3_on").style.visibility = "hidden"; document.getElementById("o_bulb3_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['o_bulb3_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("o_bulb3_off").style.visibility = "hidden"; document.getElementById("o_bulb3_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                     </table>
                 </div>
@@ -43,37 +100,7 @@
             <div class="col-md-3"> </div>
         </div>
     </div>
-    <script>
-    function outdoor_bulb1() {
-        var chk = document.getElementById("outdoor_bulb1");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-
-    function outdoor_bulb2() {
-        var chk = document.getElementById("outdoor_bulb2");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-
-    function outdoor_bulb3() {
-        var chk = document.getElementById("outdoor_bulb3");
-        if (chk.checked == true) {
-            alert('Bulb is turning ON');
-        }
-        if (chk.checked == false) {
-            alert('Bulb is turning OFF');
-        }
-    }
-    </script>
+    
 </body>
 
 </html>

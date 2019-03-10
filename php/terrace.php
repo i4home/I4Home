@@ -25,18 +25,75 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="terrace_bulb1" onchange="terrace_bulb1()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="terrace.php">
+                                    <p><input type="submit" id="t_bulb1_on" name="t_bulb1_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="t_bulb1_off" name="t_bulb1_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['t_bulb1_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("t_bulb1_on").style.visibility = "hidden"; document.getElementById("t_bulb1_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['t_bulb1_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("t_bulb1_off").style.visibility = "hidden"; document.getElementById("t_bulb1_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="terrace_bulb2" onchange="terrace_bulb2()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="terrace.php">
+                                    <p><input type="submit" id="t_bulb2_on" name="t_bulb2_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="t_bulb2_off" name="t_bulb2_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['t_bulb2_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("t_bulb2_on").style.visibility = "hidden"; document.getElementById("t_bulb2_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['t_bulb2_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("t_bulb2_off").style.visibility = "hidden"; document.getElementById("t_bulb2_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
-                            <td><input type="checkbox" class="" id="terrace_plug" onchange="tarrace_plug()"
-                                    data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></td>
+                            <td>
+                                <form method="get" action="terrace.php">
+                                    <p><input type="submit" id="t_plug_on" name="t_plug_on" value="On"
+                                            class="btn btn-success" />
+                                        <input type="submit" id="t_plug_off" name="t_plug_off" value="Off"
+                                            class="btn btn-danger" />
+                                    </p>
+                                </form>
+                            </td>
+                            <?php
+                                $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
+                                if(isset($_GET['t_plug_on'])){
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> document.getElementById("t_plug_on").style.visibility = "hidden"; document.getElementById("t_plug_off").style.visibility = "visible";</script>';
+
+                                }
+                                else if(isset($_GET['t_plug_off'])){
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script> document.getElementById("t_plug_off").style.visibility = "hidden"; document.getElementById("t_plug_on").style.visibility = "visible";</script>';
+                                }
+                              ?>
                         </tr>
                     </table>
                 </div>

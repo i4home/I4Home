@@ -24,25 +24,66 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
-                            <td>
+                            <td class="paddingyo">
                                 <form method="get" action="hall.php">
                                     <p><input type="submit" id="hall_fan_on" name="hall_fan_on" value="On"
                                             class="btn btn-success" />
                                         <input type="submit" id="hall_fan_off" name="hall_fan_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
+                                    <p>
+                                        <button type="submit" id="hall_fan_start" name="hall_fan_start"
+                                            class="btn btn-primary">
+                                            <i class="fa fa-play"></i>
+                                        </button>
+                                        &nbsp;
+                                        <button type="submit" id="hall_fan_stop" name="hall_fan_stop"
+                                            class="btn btn-primary">
+                                            <i class="fa fa-stop"></i>
+                                        </button>
+                                    </p>
+                                    </p>
                                 </form>
                             </td>
                             <?php
+                                if(isset($_GET['hall_fan_start'])){
+                                    echo '<script>
+                                     var H_F_O=document.getElementById("hall_fan_on");
+                                    var x=prompt("please enter minites only ");
+                                    if(x!=null){
+                                    setTimeout(function(){H_F_O.click()}, x*1000)
+                                    }
+                              
+                                     </script>;';
+                                }
+                                if(isset($_GET['hall_fan_stop'])){
+                                    echo '<script>
+                                    debugger;
+                                    var x=prompt("please enter minites only ");
+                                    if(x!=null){
+                                    setTimeout(function(){document.getElementById("hall_fan_off").click()}, x*1000)
+                                     }
+                                </script>;';
+                                }
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
                                 if(isset($_GET['hall_fan_on'])){
                                         $gpio_on = shell_exec("gpio -g write 12 0");
-                                        echo'<script> document.getElementById("hall_fan_on").style.visibility = "hidden"; document.getElementById("hall_fan_off").style.visibility = "visible";</script>';
+                                        echo'<script> 
+                                        document.getElementById("hall_fan_on").style.visibility = "hidden";
+                                         document.getElementById("hall_fan_start").style.visibility = "hidden";
+                                         document.getElementById("hall_fan_off").style.visibility = "visible";
+                                         document.getElementById("hall_fan_stop").style.visibility = "visible";
+                                         </script>';
 
                                 }
                                 else if(isset($_GET['hall_fan_off'])){
                                         $gpio_off = shell_exec("gpio -g write 12 1");
-                                        echo'<script> document.getElementById("hall_fan_off").style.visibility = "hidden"; document.getElementById("hall_fan_on").style.visibility = "visible";</script>';
+                                        echo'<script>  
+                                         document.getElementById("hall_fan_start").style.visibility = "visible";
+                                         document.getElementById("hall_fan_off").style.visibility = "hidden";
+                                         document.getElementById("hall_fan_on").style.visibility = "visible";
+                                         document.getElementById("hall_fan_stop").style.visibility = "hidden"; 
+                                        </script>';
                                 }
                               ?>
                         </tr>

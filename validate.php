@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-    $myEmail ="admin";
+    $myEmail ="admin"||"Admin";
     $myPass = "admin";
 
     if(isset($_POST['login']))
@@ -15,7 +15,7 @@
 			{
 				session_start();
 				$_SESSION['username']=$email;
-				header("location: welcome.php");
+				header("location: php/welcome.php");
 			}
             if(isset($_POST['remember']))
             {    
@@ -25,9 +25,9 @@
         }
         	/*if email and pass are wrong*/
         else{
-                header("location:..\login\index.php?view=$email"); 
+                header("location: index.php?view=$email"); 
             }
     }else {      
-        header("location: ..\login\index.php ");
+        header("location: index.php ");
     }
 ?>

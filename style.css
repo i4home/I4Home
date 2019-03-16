@@ -1,6 +1,6 @@
 body {
   background-image: url("images/background.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: cover;
   size: 100%;
@@ -67,6 +67,7 @@ input[type="password"]:-moz-placeholder {
   margin-top: 10vh
 }
 
+
 .transparent {
   border-width: 0px;
   -webkit-box-shadow: 0px 0px;
@@ -87,11 +88,28 @@ input[type="password"]:-moz-placeholder {
   min-height: 25px;
   background-color: rgba(255, 255, 255, 0.1);
 }
+table{
 
-.paddingyo{
+border: 1px white;
 
-  padding-top:1%;
 }
-@media screen and (max-width: 600px) {}
 
-@media screen and (max-width: 992px) {}
+td{
+  border: 1px white;
+  padding-top:50px; 
+  max-width :150px;
+}
+
+@media screen and (max-width: 600px) {
+  td{
+    padding-top:50px; 
+    max-width :50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  td{
+    padding-top:50px; 
+    max-width :100px;
+  }
+}

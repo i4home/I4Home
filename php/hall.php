@@ -9,6 +9,7 @@
 <html>
 <title>Hall</title>
 <?php require("../html/head.html")?>
+<?php require("../php/try.php")?>
 
 <body>
     <?php require("../html/header.html")?>
@@ -24,59 +25,39 @@
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
-                            <td style="padding-top:50px">
+                            <td>
                                 <form method="get" action="hall.php">
                                     <p><input type="submit" id="hall_fan_on" name="hall_fan_on" value="On"
                                             class="btn btn-success" />
+                                        &nbsp;
                                         <input type="submit" id="hall_fan_off" name="hall_fan_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <button type="submit" id="hall_fan_start" name="hall_fan_start"
-                                            class="btn btn-primary">
-                                            <i class="fa fa-play"></i>
-                                        </button>
+                                        <?php start('hall_fan_start','hall_fan_on')?>
                                         &nbsp;
-                                        <button type="submit" id="hall_fan_stop" name="hall_fan_stop"
-                                            class="btn btn-primary">
-                                            <i class="fa fa-stop"></i>
-                                        </button>
+                                        <?php stop('hall_fan_stop','hall_fan_off')?>
                                     </p>
-                                    </p>
+
                                 </form>
                             </td>
                             <?php
-                                if(isset($_GET['hall_fan_start'])){
-                                    echo '<script>
-                                     var H_F_O=document.getElementById("hall_fan_on");
-                                    var x=prompt("please enter minites only ");
-                                    if(x!=null){
-                                    setTimeout(function(){H_F_O.click()}, x*1000)
-                                    }
-                              
-                                     </script>;';
-                                }
-                                if(isset($_GET['hall_fan_stop'])){
-                                    echo '<script>
-                                    debugger;
-                                    var x=prompt("please enter minites only ");
-                                    if(x!=null){
-                                    setTimeout(function(){document.getElementById("hall_fan_off").click()}, x*1000)
-                                     }
-                                </script>;';
-                                }
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_fan_on'])){
+                                if(isset($_GET['hall_fan_on']))
+                                {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
+                                        if (isset($gpio_on))
+                                        {
                                         echo'<script> 
                                         document.getElementById("hall_fan_on").style.visibility = "hidden";
                                          document.getElementById("hall_fan_start").style.visibility = "hidden";
                                          document.getElementById("hall_fan_off").style.visibility = "visible";
                                          document.getElementById("hall_fan_stop").style.visibility = "visible";
                                          </script>';
-
+                                        }
                                 }
-                                else if(isset($_GET['hall_fan_off'])){
+                                else if(isset($_GET['hall_fan_off']))
+                                {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
                                         echo'<script>  
                                          document.getElementById("hall_fan_start").style.visibility = "visible";
@@ -89,72 +70,127 @@
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td style="padding-top:50px"> 
+                            <td>
                                 <form method="get" action="hall.php">
                                     <p><input type="submit" id="hall_bulb_on" name="hall_bulb_on" value="On"
                                             class="btn btn-success" />
+                                        &nbsp;
                                         <input type="submit" id="hall_bulb_off" name="hall_bulb_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
+                                    <p>
+                                        <?php start("hall_bulb_start","hall_bulb_on");?>
+                                        &nbsp;
+                                        <?php stop("hall_bulb_stop","hall_bulb_off");?>
+                                    </p>
                                 </form>
+
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_bulb_on'])){
-                                        $gpio_on = shell_exec("gpio -g write 16 0");
-                                        echo'<script> document.getElementById("hall_bulb_on").style.visibility = "hidden"; document.getElementById("hall_bulb_off").style.visibility = "visible";</script>';
+                                if(isset($_GET['hall_bulb_on']))
+                                {
+                                        $gpio_on = shell_exec("gpio -g write 12 0");
+                                        echo'<script> 
+                                        document.getElementById("hall_bulb_on").style.visibility = "hidden";
+                                         document.getElementById("hall_bulb_start").style.visibility = "hidden";
+                                         document.getElementById("hall_bulb_off").style.visibility = "visible";
+                                         document.getElementById("hall_bulb_stop").style.visibility = "visible";
+                                         </script>';
                                 }
-                                else if(isset($_GET['hall_bulb_off'])){
-                                        $gpio_off = shell_exec("gpio -g write 16 1");
-                                        echo'<script> document.getElementById("hall_bulb_off").style.visibility = "hidden"; document.getElementById("hall_bulb_on").style.visibility = "visible";</script>';
+                                else if(isset($_GET['hall_bulb_off']))
+                                {
+                                        $gpio_off = shell_exec("gpio -g write 12 1");
+                                        echo'<script>  
+                                         document.getElementById("hall_bulb_start").style.visibility = "visible";
+                                         document.getElementById("hall_bulb_off").style.visibility = "hidden";
+                                         document.getElementById("hall_bulb_on").style.visibility = "visible";
+                                         document.getElementById("hall_bulb_stop").style.visibility = "hidden"; 
+                                        </script>';
                                 }
                               ?>
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/tv.png" alt="tv" class="img-fluid w-50" /></td>
-                            <td style="padding-top:50px">
+                            <td>
                                 <form method="get" action="hall.php">
                                     <p><input type="submit" id="hall_tv_on" name="hall_tv_on" value="On"
                                             class="btn btn-success" />
+                                        &nbsp;
                                         <input type="submit" id="hall_tv_off" name="hall_tv_off" value="Off"
                                             class="btn btn-danger" />
+                                    </p>
+                                    <p>
+                                        <?php start("hall_tv_start","hall_tv_on");?>
+                                        &nbsp;
+                                        <?php stop("hall_tv_stop","hall_tv_off");?>
                                     </p>
                                 </form>
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_tv_on'])){
+                                if(isset($_GET['hall_tv_on']))
+                                {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
-                                        echo'<script> document.getElementById("hall_tv_on").style.visibility = "hidden"; document.getElementById("hall_tv_off").style.visibility = "visible";</script>';
-
+                                        echo'<script> 
+                                        document.getElementById("hall_tv_on").style.visibility = "hidden";
+                                         document.getElementById("hall_tv_start").style.visibility = "hidden";
+                                         document.getElementById("hall_tv_off").style.visibility = "visible";
+                                         document.getElementById("hall_tv_stop").style.visibility = "visible";
+                                         </script>';
                                 }
-                                else if(isset($_GET['hall_tv_off'])){
+                                else if(isset($_GET['hall_tv_off']))
+                                {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
-                                        echo'<script> document.getElementById("hall_tv_off").style.visibility = "hidden"; document.getElementById("hall_tv_on").style.visibility = "visible";</script>';
+                                        echo'<script>  
+                                         document.getElementById("hall_tv_start").style.visibility = "visible";
+                                         document.getElementById("hall_tv_off").style.visibility = "hidden";
+                                         document.getElementById("hall_tv_on").style.visibility = "visible";
+                                         document.getElementById("hall_tv_stop").style.visibility = "hidden"; 
+                                        </script>';
                                 }
                               ?>
                         </tr>
                         <tr class="mh-25">
-                            <td><img src="../devices/ac.png" alt="ac" class="img-fluid w-50" /></td>
-                            <td style="padding-top:50px">
+                            <td>
+                                <img src="../devices/ac.png" alt="ac" class="img-fluid w-50" />
+                            </td>
+                            <td>
                                 <form method="get" action="hall.php">
                                     <p><input type="submit" id="hall_ac_on" name="hall_ac_on" value="On"
                                             class="btn btn-success" />
+                                        &nbsp;
                                         <input type="submit" id="hall_ac_off" name="hall_ac_off" value="Off"
                                             class="btn btn-danger" />
+                                    </p>
+                                    <p>
+                                        <?php start("hall_ac_start","hall_ac_on");?>
+                                        &nbsp;
+                                        <?php stop("hall_ac_stop","hall_ac_off");?>
                                     </p>
                                 </form>
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_ac_on'])){
+                                if(isset($_GET['hall_ac_on']))
+                                {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
-                                        echo'<script> document.getElementById("hall_ac_on").style.visibility = "hidden"; document.getElementById("hall_ac_off").style.visibility = "visible";</script>';
-
+                                        echo'<script> 
+                                        document.getElementById("hall_ac_on").style.visibility = "hidden";
+                                         document.getElementById("hall_ac_start").style.visibility = "hidden";
+                                         document.getElementById("hall_ac_off").style.visibility = "visible";
+                                         document.getElementById("hall_ac_stop").style.visibility = "visible";
+                                         </script>';
                                 }
-                                else if(isset($_GET['hall_ac_off'])){
+                                else if(isset($_GET['hall_ac_off']))
+                                {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
-                                        echo'<script> document.getElementById("hall_ac_off").style.visibility = "hidden"; document.getElementById("hall_ac_on").style.visibility = "visible";</script>';
+                                        echo'<script>  
+                                         document.getElementById("hall_ac_start").style.visibility = "visible";
+                                         document.getElementById("hall_ac_off").style.visibility = "hidden";
+                                         document.getElementById("hall_ac_on").style.visibility = "visible";
+                                         document.getElementById("hall_ac_stop").style.visibility = "hidden"; 
+                                        </script>';
                                 }
                               ?>
                         </tr>

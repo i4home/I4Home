@@ -9,5 +9,5 @@
         setcookie('email',$email ,time()-1);
         setcookie('passoword',$pass ,time()-1);
     }
-    header("location: ..\login\index.php");
+    header("location:index.php");
 ?>

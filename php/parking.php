@@ -27,7 +27,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="parking.php">
+                                <form method="POST" action="parking.php">
                                     <p><input type="submit" id="p_bulb1_on" name="p_bulb1_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -40,7 +40,6 @@ if (!isset ($_SESSION['username']))
                                         <?php stop("p_bulb1_stop", "p_bulb1_off"); ?>
                                     </p>
                                 </form>
-
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
@@ -69,7 +68,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="parking.php">
+                                <form method="POST" action="parking.php">
                                     <p><input type="submit" id="p_bulb2_on" name="p_bulb2_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -111,7 +110,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="parking.php">
+                                <form method="POST" action="parking.php">
                                     <p><input type="submit" id="p_plug_on" name="p_plug_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;

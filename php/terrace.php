@@ -9,13 +9,13 @@ if (!isset ($_SESSION['username']))
 <html>
 <title>Terrace</title>
 <?php require ("../html/head.html")?>
-; ;
+
 <?php require ("try.php")?>
-; ;
+
 
 <body>
     <?php require ("../html/header.html")?>
-;     ;
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
@@ -27,8 +27,8 @@ if (!isset ($_SESSION['username']))
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td >
-                                <form method="get" action="terrace.php">
+                            <td>
+                                <form method="POST" action="terrace.php">
                                     <p><input type="submit" id="t_bulb1_on" name="t_bulb1_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -45,7 +45,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['t_bulb1_on']))
+                            if (isset ($_POST['t_bulb1_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -55,7 +55,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("t_bulb1_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_GET['t_bulb1_off']))
+                            else if (isset ($_POST['t_bulb1_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  
@@ -69,8 +69,8 @@ if (!isset ($_SESSION['username']))
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td >
-                                <form method="get" action="terrace.php">
+                            <td>
+                                <form method="POST" action="terrace.php">
                                     <p><input type="submit" id="t_bulb2_on" name="t_bulb2_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -87,7 +87,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['t_bulb2_on']))
+                            if (isset ($_POST['t_bulb2_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -97,7 +97,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("t_bulb2_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_GET['t_bulb2_off']))
+                            else if (isset ($_POST['t_bulb2_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  
@@ -111,8 +111,8 @@ if (!isset ($_SESSION['username']))
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
-                            <td >
-                                <form method="get" action="terrace.php">
+                            <td>
+                                <form method="POST" action="terrace.php">
                                     <p><input type="submit" id="t_plug_on" name="t_plug_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -129,7 +129,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['t_plug_on']))
+                            if (isset ($_POST['t_plug_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -139,7 +139,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("t_plug_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_GET['t_plug_off']))
+                            else if (isset ($_POST['t_plug_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  

@@ -26,7 +26,7 @@
                         <tr class="mh-25">
                             <td><img src="../devices/fan.png" alt="fan" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="hall.php">
+                                <form method="POST" action="hall.php">
                                     <p><input type="submit" id="hall_fan_on" name="hall_fan_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -43,11 +43,9 @@
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_fan_on']))
+                                if(isset($_POST['hall_fan_on']))
                                 {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
-                                        if (isset($gpio_on))
-                                        {
                                         echo'<script> 
                                         document.getElementById("hall_fan_on").style.visibility = "hidden";
                                          document.getElementById("hall_fan_start").style.visibility = "hidden";
@@ -55,8 +53,7 @@
                                          document.getElementById("hall_fan_stop").style.visibility = "visible";
                                          </script>';
                                         }
-                                }
-                                else if(isset($_GET['hall_fan_off']))
+                                else if(isset($_POST['hall_fan_off']))
                                 {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
                                         echo'<script>  
@@ -71,7 +68,7 @@
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="hall.php">
+                                <form method="POST" action="hall.php">
                                     <p><input type="submit" id="hall_bulb_on" name="hall_bulb_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -88,7 +85,7 @@
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_bulb_on']))
+                                if(isset($_POST['hall_bulb_on']))
                                 {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
                                         echo'<script> 
@@ -98,7 +95,7 @@
                                          document.getElementById("hall_bulb_stop").style.visibility = "visible";
                                          </script>';
                                 }
-                                else if(isset($_GET['hall_bulb_off']))
+                                else if(isset($_POST['hall_bulb_off']))
                                 {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
                                         echo'<script>  
@@ -113,7 +110,7 @@
                         <tr class="mh-25">
                             <td><img src="../devices/tv.png" alt="tv" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="get" action="hall.php">
+                                <form method="POST" action="hall.php">
                                     <p><input type="submit" id="hall_tv_on" name="hall_tv_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -129,7 +126,7 @@
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_tv_on']))
+                                if(isset($_POST['hall_tv_on']))
                                 {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
                                         echo'<script> 
@@ -139,7 +136,7 @@
                                          document.getElementById("hall_tv_stop").style.visibility = "visible";
                                          </script>';
                                 }
-                                else if(isset($_GET['hall_tv_off']))
+                                else if(isset($_POST['hall_tv_off']))
                                 {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
                                         echo'<script>  
@@ -153,10 +150,10 @@
                         </tr>
                         <tr class="mh-25">
                             <td>
-                                <img src="../devices/ac.png" alt="ac" class="img-fluid w-50" />
+                                <img src="../devices/acs.png" alt="ac" class="img-fluid w-50" />
                             </td>
                             <td>
-                                <form method="get" action="hall.php">
+                                <form method="POST" action="hall.php">
                                     <p><input type="submit" id="hall_ac_on" name="hall_ac_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -172,7 +169,7 @@
                             </td>
                             <?php
                                 $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                                if(isset($_GET['hall_ac_on']))
+                                if(isset($_POST['hall_ac_on']))
                                 {
                                         $gpio_on = shell_exec("gpio -g write 12 0");
                                         echo'<script> 
@@ -182,7 +179,7 @@
                                          document.getElementById("hall_ac_stop").style.visibility = "visible";
                                          </script>';
                                 }
-                                else if(isset($_GET['hall_ac_off']))
+                                else if(isset($_POST['hall_ac_off']))
                                 {
                                         $gpio_off = shell_exec("gpio -g write 12 1");
                                         echo'<script>  

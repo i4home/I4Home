@@ -14,9 +14,7 @@ if (isset ($_SESSION['username']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>I4home</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="index/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="index/bootstrap.min.css">
     <script src="index/jquery.min.js"></script>
     <script src="index/bootstrap.min.js"></script>
@@ -30,18 +28,14 @@ if (isset ($_SESSION['username']))
                 <div class="col-md-6 ">
                     <form class="form-signin" role="form" action="validate.php" method="post">
                         <center>
-
                             <img id="logo" src="images\logo.png" width="50%">
                             <h3 class="text-white">LOGIN</h3>
                         </center>
                         <div class="errorMSG  text-danger" Id='errorMsg'>
-                            
-
                             <?php if (isset ($_REQUEST['view']))
                             {
                                 echo '<h5> Email or password is wrong </h5>';
                             }?>
-
                         </div>
                         <br />
                         <div class="form-group input-group">
@@ -60,10 +54,10 @@ if (isset ($_SESSION['username']))
                         </div>
                         <p>
                             <label class="text-white"><input name="remember" value="1" type="checkbox">
-                                Remember me <i class="fa fa-question-circle" aria-hidden="true"></i></label>
+                                Remember me </label>
                         </p>
                         <button type="submit" name="login" value="Login" class="btn btn-primary btn-block">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Login</button>
+                            <i class="fa fa-sign-in-alt" aria-hidden="true"></i>&nbsp; Login</button>
 
                         <h5 class="text-skyblue"><button type="button" class="btn btn-link" data-toggle="modal"
                                 data-target="#passlink" style="color:white; padding:0px; text-decoration:none">

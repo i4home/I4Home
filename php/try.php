@@ -11,7 +11,7 @@ function stop($param1, $param2)
 }
 function timer($param1, $param2)
 {
-    if (isset ($_POST[$param1]))
+    if (isset ($_GET[$param1]))
     {
         echo '
                     <script>
@@ -24,4 +24,10 @@ function timer($param1, $param2)
                     </script>';
     }
 }
+// function read($pin){
+    
+    // $btnpin = shell_exec('gpio -g read .'$pin'.');
+    // echo'<script>debugger; alert('$btnpin');</script>';
+// }
+
 ?>

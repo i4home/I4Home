@@ -25,7 +25,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="POST" action="terrace.php">
+                                <form method="GET" action="terrace.php">
                                     <p><input type="submit" id="o_bulb1_on" name="o_bulb1_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -42,7 +42,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['o_bulb1_on']))
+                            if (isset ($_GET['o_bulb1_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -52,7 +52,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("o_bulb1_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_POST['o_bulb1_off']))
+                            else if (isset ($_GET['o_bulb1_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  
@@ -67,7 +67,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="POST" action="terrace.php">
+                                <form method="GET" action="terrace.php">
                                     <p><input type="submit" id="o_bulb2_on" name="o_bulb2_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -84,7 +84,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['o_bulb2_on']))
+                            if (isset ($_GET['o_bulb2_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -94,7 +94,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("o_bulb2_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_POST['o_bulb2_off']))
+                            else if (isset ($_GET['o_bulb2_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  
@@ -109,7 +109,7 @@ if (!isset ($_SESSION['username']))
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="blub" class="img-fluid w-50" /></td>
                             <td>
-                                <form method="POST" action="terrace.php">
+                                <form method="GET" action="terrace.php">
                                     <p><input type="submit" id="o_bulb3_on" name="o_bulb3_on" value="On"
                                             class="btn btn-success" />
                                         &nbsp;
@@ -126,7 +126,7 @@ if (!isset ($_SESSION['username']))
                             </td>
                             <?php
                             $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['o_bulb3_on']))
+                            if (isset ($_GET['o_bulb3_on']))
                             {
                                 $gpio_on = shell_exec("gpio -g write 12 0");
                                 echo '<script> 
@@ -136,7 +136,7 @@ if (!isset ($_SESSION['username']))
                                          document.getElementById("o_bulb3_stop").style.visibility = "visible";
                                          </script>';
                             }
-                            else if (isset ($_POST['o_bulb3_off']))
+                            else if (isset ($_GET['o_bulb3_off']))
                             {
                                 $gpio_off = shell_exec("gpio -g write 12 1");
                                 echo '<script>  

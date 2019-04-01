@@ -2,7 +2,7 @@
 session_start();
 if (!isset ($_SESSION['username']))
 {
-    header("location: ..\login\index.php");
+    header("location: ..\index.php");
 }
 
 ?>
@@ -24,129 +24,86 @@ if (!isset ($_SESSION['username']))
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="GET" action="terrace.php">
+                                                        <td>
+                                <form method="GET" action="outdoor.php">
                                     <p><input type="submit" id="o_bulb1_on" name="o_bulb1_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
+                                                                           
                                         <input type="submit" id="o_bulb1_off" name="o_bulb1_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("o_bulb1_start", "o_bulb1_on"); ?>
-                                        &nbsp;
-                                        <?php stop("o_bulb1_stop", "o_bulb1_off"); ?>
+                                        <?php start('o_bulb1_start','o_bulb1_on');?>
+                                        
+                                        <?php stop('o_bulb1_stop','o_bulb1_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('o_bulb1');
+                                        }
+										else if ($jay == 1){
+                                     check_off('o_bulb1');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['o_bulb1_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("o_bulb1_on").style.visibility = "hidden";
-                                         document.getElementById("o_bulb1_start").style.visibility = "hidden";
-                                         document.getElementById("o_bulb1_off").style.visibility = "visible";
-                                         document.getElementById("o_bulb1_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_GET['o_bulb1_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("o_bulb1_start").style.visibility = "visible";
-                                    document.getElementById("o_bulb1_off").style.visibility = "hidden";
-                                    document.getElementById("o_bulb1_on").style.visibility = "visible";
-                                    document.getElementById("o_bulb1_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('o_bulb1',12); ?>
+         
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="GET" action="terrace.php">
+                                      <td>
+                                <form method="GET" action="outdoor.php">
                                     <p><input type="submit" id="o_bulb2_on" name="o_bulb2_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
+                                                                           
                                         <input type="submit" id="o_bulb2_off" name="o_bulb2_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("o_bulb2_start", "o_bulb2_on"); ?>
-                                        &nbsp;
-                                        <?php stop("o_bulb2_stop", "o_bulb2_off"); ?>
+                                        <?php start('o_bulb2_start','o_bulb2_on');?>
+                                        
+                                        <?php stop('o_bulb2_stop','o_bulb2_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('o_bulb2');
+                                        }
+										else if ($jay == 1){
+                                     check_off('o_bulb2');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['o_bulb2_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("o_bulb2_on").style.visibility = "hidden";
-                                         document.getElementById("o_bulb2_start").style.visibility = "hidden";
-                                         document.getElementById("o_bulb2_off").style.visibility = "visible";
-                                         document.getElementById("o_bulb2_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_GET['o_bulb2_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("o_bulb2_start").style.visibility = "visible";
-                                    document.getElementById("o_bulb2_off").style.visibility = "hidden";
-                                    document.getElementById("o_bulb2_on").style.visibility = "visible";
-                                    document.getElementById("o_bulb2_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('o_bulb2',12); ?>
+         
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="blub" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="GET" action="terrace.php">
+                                                        <td>
+                                <form method="GET" action="outdoor.php">
                                     <p><input type="submit" id="o_bulb3_on" name="o_bulb3_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
+                                                                           
                                         <input type="submit" id="o_bulb3_off" name="o_bulb3_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("o_bulb3_start", "o_bulb3_on"); ?>
-                                        &nbsp;
-                                        <?php stop("o_bulb3_stop", "o_bulb3_off"); ?>
+                                        <?php start('o_bulb3_start','o_bulb3_on');?>
+                                        
+                                        <?php stop('o_bulb3_stop','o_bulb3_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('o_bulb3');
+                                        }
+										else if ($jay == 1){
+                                     check_off('o_bulb3');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_GET['o_bulb3_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("o_bulb3_on").style.visibility = "hidden";
-                                         document.getElementById("o_bulb3_start").style.visibility = "hidden";
-                                         document.getElementById("o_bulb3_off").style.visibility = "visible";
-                                         document.getElementById("o_bulb3_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_GET['o_bulb3_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("o_bulb3_start").style.visibility = "visible";
-                                    document.getElementById("o_bulb3_off").style.visibility = "hidden";
-                                    document.getElementById("o_bulb3_on").style.visibility = "visible";
-                                    document.getElementById("o_bulb3_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('o_bulb3',12); ?>
                         </tr>
                     </table>
                 </div>

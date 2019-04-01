@@ -2,7 +2,7 @@
 session_start();
 if (!isset ($_SESSION['username']))
 {
-    header("location: ..\login\index.php");
+    header("location: ..\index.php");
 }
 
 ?>
@@ -27,129 +27,87 @@ if (!isset ($_SESSION['username']))
                     <table class="table">
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="POST" action="terrace.php">
-                                    <p><input type="submit" id="t_bulb1_on" name="t_bulb1_on" value="On"
+                                              <td>
+                                <form method="GET" action="terrace.php">
+                                    <p><input type="submit" id="T_bulb1_on" name="T_bulb1_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
-                                        <input type="submit" id="t_bulb1_off" name="t_bulb1_off" value="Off"
+                                                                           
+                                        <input type="submit" id="T_bulb1_off" name="T_bulb1_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("t_bulb1_start", "t_bulb1_on"); ?>
-                                        &nbsp;
-                                        <?php stop("t_bulb1_stop", "t_bulb1_off"); ?>
+                                        <?php start('T_bulb1_start','T_bulb1_on');?>
+                                        
+                                        <?php stop('T_bulb1_stop','T_bulb1_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('T_bulb1');
+                                        }
+										else if ($jay == 1){
+                                     check_off('T_bulb1');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['t_bulb1_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("t_bulb1_on").style.visibility = "hidden";
-                                         document.getElementById("t_bulb1_start").style.visibility = "hidden";
-                                         document.getElementById("t_bulb1_off").style.visibility = "visible";
-                                         document.getElementById("t_bulb1_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_POST['t_bulb1_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("t_bulb1_start").style.visibility = "visible";
-                                    document.getElementById("t_bulb1_off").style.visibility = "hidden";
-                                    document.getElementById("t_bulb1_on").style.visibility = "visible";
-                                    document.getElementById("t_bulb1_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('T_bulb1',12); ?>
+         
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/bulb.png" alt="bulb" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="POST" action="terrace.php">
-                                    <p><input type="submit" id="t_bulb2_on" name="t_bulb2_on" value="On"
+                                                        <td>
+                                <form method="GET" action="terrace.php">
+                                    <p><input type="submit" id="T_bulb2_on" name="T_bulb2_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
-                                        <input type="submit" id="t_bulb2_off" name="t_bulb2_off" value="Off"
+                                                                           
+                                        <input type="submit" id="T_bulb2_off" name="T_bulb2_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("t_bulb2_start", "t_bulb2_on"); ?>
-                                        &nbsp;
-                                        <?php stop("t_bulb2_stop", "t_bulb2_off"); ?>
+                                        <?php start('T_bulb2_start','T_bulb2_on');?>
+                                        
+                                        <?php stop('T_bulb2_stop','T_bulb2_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('T_bulb2');
+                                        }
+										else if ($jay == 1){
+                                     check_off('T_bulb2');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['t_bulb2_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("t_bulb2_on").style.visibility = "hidden";
-                                         document.getElementById("t_bulb2_start").style.visibility = "hidden";
-                                         document.getElementById("t_bulb2_off").style.visibility = "visible";
-                                         document.getElementById("t_bulb2_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_POST['t_bulb2_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("t_bulb2_start").style.visibility = "visible";
-                                    document.getElementById("t_bulb2_off").style.visibility = "hidden";
-                                    document.getElementById("t_bulb2_on").style.visibility = "visible";
-                                    document.getElementById("t_bulb2_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('T_bulb2',12); ?>
+         
                         </tr>
                         <tr class="mh-25">
                             <td><img src="../devices/plug.png" alt="plug" class="img-fluid w-50" /></td>
-                            <td>
-                                <form method="POST" action="terrace.php">
-                                    <p><input type="submit" id="t_plug_on" name="t_plug_on" value="On"
+                                                        <td>
+                                <form method="GET" action="terrace.php">
+                                    <p><input type="submit" id="T_plug_on" name="T_plug_on" value="On"
                                             class="btn btn-success" />
-                                        &nbsp;
-                                        <input type="submit" id="t_plug_off" name="t_plug_off" value="Off"
+                                                                           
+                                        <input type="submit" id="T_plug_off" name="T_plug_off" value="Off"
                                             class="btn btn-danger" />
                                     </p>
                                     <p>
-                                        <?php start("t_plug_start", "t_plug_on"); ?>
-                                        &nbsp;
-                                        <?php stop("t_plug_stop", "t_plug_off"); ?>
+                                        <?php start('T_plug_start','T_plug_on');?>
+                                        
+                                        <?php stop('T_plug_stop','T_plug_off');?>
                                     </p>
+                                    <?php 
+                                    $jay= shell_exec("gpio -g read 12");
+                                    if($jay == 0){   
+                                    check_on('T_plug');
+                                        }
+										else if ($jay == 1){
+                                     check_off('T_plug');                                          
+                                        }?>
                                 </form>
-
                             </td>
-                            <?php
-                            $setmode12 = shell_exec("sudo /usr/local/bin/gpio -g mode 12 out");
-                            if (isset ($_POST['t_plug_on']))
-                            {
-                                $gpio_on = shell_exec("gpio -g write 12 0");
-                                echo '<script> 
-                                        document.getElementById("t_plug_on").style.visibility = "hidden";
-                                         document.getElementById("t_plug_start").style.visibility = "hidden";
-                                         document.getElementById("t_plug_off").style.visibility = "visible";
-                                         document.getElementById("t_plug_stop").style.visibility = "visible";
-                                         </script>';
-                            }
-                            else if (isset ($_POST['t_plug_off']))
-                            {
-                                $gpio_off = shell_exec("gpio -g write 12 1");
-                                echo '<script>  
-                                    document.getElementById("t_plug_start").style.visibility = "visible";
-                                    document.getElementById("t_plug_off").style.visibility = "hidden";
-                                    document.getElementById("t_plug_on").style.visibility = "visible";
-                                    document.getElementById("t_plug_stop").style.visibility = "hidden"; 
-                                </script>';
-                            }
-                            ?>
+                        <?php  check('T_plug',12); ?>
+         
                         </tr>
                     </table>
                 </div>
